@@ -1,0 +1,241 @@
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --light-red: 0, 100%, 67%;
+  --orange-yellow: 39, 100%, 56%;
+  --green-teal: 166, 100%, 37%;
+  --cobalt-blue: 234, 85%, 45%;
+  --white: 0, 0%, 100%;
+  --pale-blue: 221, 100%, 96%;
+  --light-lavander: 241, 100%, 89%;
+  --dark-gray-blue: 244, 30%, 27%;
+  --gradient-100: linear-gradient(
+    to bottom,
+    hsl(252, 100%, 67%),
+    hsl(241, 81%, 54%)
+  );
+  --gradient-200: linear-gradient(
+    to bottom,
+    hsla(256, 72%, 46%, 1),
+    hsla(241, 72%, 46%, 0)
+  );
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 1rem;
+}
+
+p {
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1.125rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+.results {
+  padding: 1.5rem calc(3.875rem - 1px) 2.25rem;
+  text-align: center;
+  color: hsl(var(--white));
+  background-image: var(--gradient-100);
+  border-bottom-left-radius: 1.875rem;
+  border-bottom-right-radius: 1.875rem;
+  overflow: hidden;
+}
+
+.results .metrics {
+  --dim: 8.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 1.5rem auto;
+  width: var(--dim);
+  height: var(--dim);
+  background-image: var(--gradient-200);
+  border-radius: 99rem;
+}
+
+.results .metrics .numerator {
+  font-size: 3.5rem;
+}
+
+.results .metrics .denominator {
+  color: hsl(var(--pale-blue));
+}
+
+.results .metrics .denominator {
+  color: hsl(var(--light-lavander));
+}
+
+.results .description p {
+  color: hsl(var(--pale-blue));
+}
+
+.results .description {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem 1.5rem;
+}
+
+.summary .category,
+.summary .category > * {
+  display: flex;
+}
+
+.summary .category .left {
+  gap: 0.75rem;
+}
+
+.summary .category {
+  justify-content: space-between;
+  padding: 1.125rem 1rem;
+}
+
+.summary .category .right .divider {
+  margin-inline: 0.5rem 0.25rem;
+}
+
+.summary .categories {
+  display: grid;
+  gap: 1rem;
+}
+
+.categories .category {
+  border-radius: 0.625rem;
+}
+
+.categories .category:nth-child(1) {
+  color: hsl(var(--light-red));
+  background-color: hsla(var(--light-red), 0.1);
+}
+
+.category:nth-child(2) {
+  color: hsl(var(--orange-yellow));
+  background-color: hsla(var(--orange-yellow), 0.1);
+}
+
+.category:nth-child(3) {
+  color: hsl(var(--green-teal));
+  background-color: hsla(var(--green-teal), 0.1);
+}
+
+.category:nth-child(4) {
+  color: hsl(var(--cobalt-blue));
+  background-color: hsla(var(--cobalt-blue), 0.1);
+}
+
+.categories .category .numerator {
+  color: hsl(var(--dark-gray-blue));
+}
+
+.categories .category .divider,
+.categories .category .denominator {
+  color: hsla(var(--dark-gray-blue), 0.5);
+}
+
+.summary .button {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  padding-block: 1rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  color: hsl(var(--white));
+  background: hsl(var(--dark-gray-blue));
+  border-radius: 99rem;
+  overflow: hidden;
+  z-index: 1;
+  transition: background 300ms ease-in-out;
+}
+
+.summary .button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-100);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 300ms ease-in-out;
+}
+
+.summary .button:hover::before {
+  opacity: 1;
+}
+
+@media only screen and (min-width: 649px) {
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 46rem;
+    border-radius: 1.875rem;
+    box-shadow: 0 10px 20px 5px hsl(var(--cobalt-blue), 0.1);
+  }
+
+  .results {
+    padding-block: 2.375rem 3.375rem;
+    border-radius: 1.875rem;
+  }
+
+  .results .metrics {
+    --dim: 12.5rem;
+    margin-block: 2.125rem 1.75rem;
+  }
+
+  .results .metrics .numerator {
+    font-size: 4.5rem;
+  }
+
+  .results .metrics .denominator {
+    font-size: 1.125rem;
+  }
+
+  .results .description h2 {
+    margin-bottom: 0.875rem;
+  }
+
+  .summary {
+    justify-content: space-between;
+    padding: 2.375rem 2.5rem 2.875rem;
+  }
+
+  .summary h3 {
+    margin-bottom: 0.25rem;
+  }
+}
